@@ -1,5 +1,5 @@
 <template name="organization">
-  <h1>[[organization name]]</h1>
+  <h1>{{name}}</h1>
     <div class="container">
     <header>
       <h1>Our Current Needs</h1>
@@ -11,7 +11,7 @@
         <td>Planned</td>
         <td>Delivered</td>
       </tr>
-      {{#each needs}}
+      {{#each organizationNeeds}}
         {{> need}}
       {{/each}}
     </table>    
