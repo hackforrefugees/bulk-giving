@@ -1,3 +1,5 @@
+Meteor.subscribe("allOrganizations");
+
 Template.addOrganization.events({
     "submit .new-organization": function (event) {
       // Prevent default browser form submit

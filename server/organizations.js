@@ -1,3 +1,13 @@
+ Meteor.publish("allOrganizations", function () {
+    return Organizations.find();
+  });
+
+Meteor.publish("myOrganizations", function () {
+    return Organizations.find(
+        { owner: this.userId }
+    );
+});
+
 Meteor.methods({
     createOrganization: function(organizationName) {
         var id = Meteor.userId();
