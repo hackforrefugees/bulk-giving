@@ -12,7 +12,7 @@
         <td>Delivered</td>
       </tr>
       {{#each organizationNeeds}}
-        {{> need}}
+        {{> organizationNeed}}
       {{/each}}
     </table>    
   </div>
@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<template name="organizationNeeds">
+<template name="organizationNeed">
   <tr>
     <td>{{title}}</td>
     <td>{{needed}}</td>
