@@ -4,7 +4,6 @@ Template.startpage.events({
         //Router.go('/home');
     },
     "click #organizationRedirect": function() {
-        console.log('Yloo');
-        //Router.go('/home');
+        Router.go('/signin');
     }
 });
