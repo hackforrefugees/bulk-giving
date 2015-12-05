@@ -9,3 +9,4 @@ Router.route('/organizations/:name', function() {
 		return Organizations.findOne({name: name}) 
 	}})
 });
+Router.route('/signin');
