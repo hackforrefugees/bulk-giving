@@ -3,3 +3,9 @@ Template.navbar.events({
         AccountsTemplates.logout();
     }
 });
+
+Template.navbar.helpers({
+	getUserName: function() {
+    	return Meteor.user().username;
+  	}
+});
