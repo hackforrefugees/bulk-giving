@@ -1,6 +1,11 @@
 # bulk-giving
 Description: An app where organizations can say that they need something in bulk which volunteers then provide part of. E.g. an org needs 200 mattresses. One person says s/he can donate 10. The org now only needs 190 mattresses...
 
+# How to run our stuff
+Install meteor (see https://www.meteor.com/install) for information.
+Using a terminal, from this directory run 'meteor'.
+That's it! The terminal output should now tell you how to access the pafe.
+
 # Instructions
 * Remember to only use libraries, content etc that is compatible with an open source license.
 * Replace this file with something describing your project.
