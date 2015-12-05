@@ -14,7 +14,7 @@
       {{#each organizationNeeds name}}
         <tr>
           {{> organizationNeed}}
-          {{#if belongsToOrganization}}
+          {{#if hasAccessToNeed}}
             <form class="new-delivery">
               <input type="text" name="amount" value=1>
               <input type="submit" value="Delivered">
@@ -24,7 +24,7 @@
       {{/each}}
     </table>
   <div>
-    {{#if belongsToOrganization}}
+    {{#if hasAccessToOrganization}}
       <form class="new-need">
           <input type="text" name="what" placeholder="What do you need?" />
           <input type="text" name="amount" placeholder="How many?">

@@ -19,9 +19,13 @@ Template.organization.helpers({
   organizationNeeds: function() {
     return Needs.find({organization:this.name});
   },
-  belongsToOrganization: function() {
+  hasAccessToOrganization: function() {
     var user = Meteor.user();
     return user && (user.organization == this.name);
-  }
+  },
+  hasAccessToNeed: function() {
+    var user = Meteor.user();
+    return user && (user.organization == this.organization);
+  },
 });
 
