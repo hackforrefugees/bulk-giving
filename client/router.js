@@ -1,3 +1,12 @@
+Router.configure({
+  waitOn: function() {
+    if (Meteor.user() && Meteor.user().organization) {
+      return [
+        Meteor.subscribe('userData', Meteor.user()),
+      ];
+    }
+  }
+});
 Router.route('/',{
     template: 'startpage'
 });

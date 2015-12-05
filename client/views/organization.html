@@ -12,7 +12,15 @@
         <td>Delivered</td>
       </tr>
       {{#each organizationNeeds name}}
-        {{> organizationNeed}}
+        <tr>
+          {{> organizationNeed}}
+          {{#if belongsToOrganization}}
+            <form class="new-delivery">
+              <input type="text" name="amount" value=1>
+              <input type="submit" value="Delivered">
+            </form>
+          {{/if}}
+        </tr>
       {{/each}}
     </table>
   <div>
@@ -28,16 +36,8 @@
 </template>
 
 <template name="organizationNeed">
-  <tr>
-    <td>{{title}}</td>
-    <td>{{needed}}</td>
-    <td>{{planned}}</td>
-    <td>{{delivered}}</td>
-    {{#if belongsToOrganization}}
-      <form class="new-delivery">
-        <input type="text" name="amount" value=1>
-        <input type="submit" value="Delivered">
-      </form>
-    {{/if}}
-  </tr>
+  <td>{{title}}</td>
+  <td>{{needed}}</td>
+  <td>{{planned}}</td>
+  <td>{{delivered}}</td>
 </template>
