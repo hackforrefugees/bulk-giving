@@ -1,13 +1,13 @@
 Session.setDefault('counter', 0);
 
-  Template.hello1.helpers({
+  Template.hello.helpers({
     counter: function () {
       return Session.get('counter');
     }
   });
 
   Template.hello.events({
-    'mousedown': function () {
+    'click': function () {
       // increment the counter when button is clicked
       Session.set('counter', Session.get('counter') + 1);
     }
