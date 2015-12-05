@@ -1,3 +1,28 @@
 <template name="home">
-    <p>Hi there! Welcome to bulk-giving!</p>
+  <h1>Welcome to Bulkgiving!</h1>
+    <div class="container">
+    <header>
+      <h1>Needs</h1>
+    </header>
+    <table>
+      <tr class='bold'>
+        <td>Title</td>
+        <td>Needed</td>
+        <td>Planned</td>
+        <td>Delivered</td>
+      </tr>
+      {{#each needs}}
+        {{> need}}
+      {{/each}}
+    </table>
+  </div>
+</template>
+
+<template name="need">
+  <tr>
+    <td>{{title}}</td>
+    <td>{{needed}}</td>
+    <td>{{planned}}</td>
+    <td>{{delivered}}</td>
+  </tr>
 </template>
