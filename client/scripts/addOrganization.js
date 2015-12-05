@@ -18,11 +18,3 @@ Template.body.events({
 
     }
   });
-
-Template.home.helpers({
-  needs: [
-    { title: "Mattresses", needed: 10, planned: 2, delivered: 2},
-    { title: "Coats", needed: 100, planned: 20, delivered: 50},
-    { title: "Socks", needed: 500, planned: 30, delivered: 349}
-  ]
-});
