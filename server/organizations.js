@@ -18,12 +18,17 @@ Meteor.methods({
             return organizationId;
         }
     },
-
    addNeed: function(title, amount, organizationName, organizationId) {
         var user = Meteor.users.findOne(this.userId);
         if(user.organization == organizationName) {
             var needId = Needs.insert({title: title, needed: amount, planned: 0, delivered: 0, organization: organizationName, creator: this.userId });
             return needId;
+        }
+    },
+    addDelivery: function(id, organization, amount) {
+        var user = Meteor.users.findOne(this.userId);
+        if(user.organization == organization) {
+            Needs.update({_id: id}, {$inc: {delivered: amount}});
         }
     }
 });

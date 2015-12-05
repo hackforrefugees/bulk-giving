@@ -7,8 +7,12 @@ Template.organization.events({
       var need = event.target.what.value;
       var amount = event.target.amount.value;
       Meteor.call("addNeed", need, amount, this.name, this._id);
+    },
+    "submit .new-delivery": function (event) {
+      event.preventDefault();
+      var amount = parseInt(event.target.amount.value);
+      Meteor.call("addDelivery", this._id, this.organization, amount);
     }
-
 });
 
 Template.organization.helpers({
