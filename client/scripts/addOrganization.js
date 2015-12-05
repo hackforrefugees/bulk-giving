@@ -1,6 +1,4 @@
-Session.setDefault('counter', 0);
-
-  Template.body.events({
+Template.body.events({
     "submit .new-organization": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
