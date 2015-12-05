@@ -13,8 +13,8 @@ Template.organization.events({
 });
 
 Template.organization.helpers({
-  organizationNeeds: function(id) {
-    return Needs.find({organization_id:id});
+  organizationNeeds: function() {
+    return Needs.find({organization:this.name});
   }
 });
 
