@@ -1,15 +1,19 @@
 <template name="organizations">	
 	<div id="aside" style="float: right">
-		<h3>You are not signed in. Please do</h3>
-		{{> loginButtons}}
+		{{> loginButtons align="right"}}
 	</div>
 	<div id="section">	
-		{{> addOrganization}}
-		{{> organizationList}}			
+		{{#if currentUser}}
+			{{> addOrganization}}		
+		{{else}}
+		<h3>You are not signed in. Please sign in to add organizations</h3>
+		{{/if}}
+		{{> organizationList}}
 	</div>
 </template>
 
 <template name="organizationList">
+	<h3>Available organizations</h3>
 	<ul>
       {{#each organizations}}
         {{> oneOrganization}}
