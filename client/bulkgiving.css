@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 /* This is stolen from destination unknown, please feel free to modify */
 body {
-    background-color: #BBBBBB;
+    background-color: #FFFFFF;
     background-repeat: repeat-y;
     background-size: auto;
     position: absolute;
@@ -9,14 +9,28 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    font-family: 'Bree Serif', serif;
+}
+
+.needs-table {
+    width: 80%;
+    border-collapse: separate;
+    border-spacing: 0 .5em;
+}
+
+.need-row {
+    background-color: #0099FF;
+    line-height: 3em;
+    text-align: center;
+}
+
+.need-form {
+    line-height: 3em;
 }
 
 .selectorButton {
 	display: block;
 	background-color: #00FF00;
 }
-
 
 .header-login {
     font-size: 18px;

@@ -1,38 +1,37 @@
 <template name="organization">
-  <h1>{{name}}</h1>
-    <div class="container">
-    <header>
-      <h1>Our Current Needs</h1>
-    </header>
-    <table>
-      <tr class='bold'>
-        <td>Title</td>
-        <td>Needed</td>
-        <td>Planned</td>
-        <td>Delivered</td>
+  <div class="container">
+    <h1>Welcome to {{name}}</h1>
+    <table class="table needs-table">
+      <tr>
+        <td><h4>Title</h4></td>
+        <td><h4>Needed</h4></td>
+        <td><h4>Planned</h4></td>
+        <td><h4>Delivered</h4></td>
       </tr>
       {{#each organizationNeeds name}}
-        <tr>
+        <tr class="need-row">
           {{> organizationNeed}}
           {{#if hasAccessToNeed}}
-            <form class="new-delivery">
-              <input type="text" name="amount" value=1>
-              <input type="submit" value="Delivered">
-            </form>
+            <td>
+              <form class="new-delivery">
+                <input type="text" name="amount" value=1>
+                <button type="submit" class="btn btn-success">Delivered</button>
+              </form>
+            </td>
           {{/if}}
         </tr>
       {{/each}}
     </table>
-  <div>
     {{#if hasAccessToOrganization}}
-      <form class="new-need">
+      <div>
+        <form class="new-need need-form">
           <input type="text" name="what" placeholder="What do you need?" />
           <input type="text" name="amount" placeholder="How many?">
-          <input type="submit" value="Submit" >
-      </form>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
     {{/if}}
-  </div>
-</div>
+    </div>
 </template>
 
 <template name="organizationNeed">
