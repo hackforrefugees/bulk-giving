@@ -1,4 +1,268 @@
 /* CSS declarations go here */
-.bold {
-  font-weight: bold;
+/* This is stolen from destination unknown, please feel free to modify */
+body {
+    background-color: #BBBBBB;
+    background-repeat: repeat-y;
+    background-size: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-family: 'Bree Serif', serif;
+}
+
+.selectorButton {
+	display: block;
+	background-color: #00FF00;
+}
+
+
+.header-login {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.header-help {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.container {
+    height: 100%;
+}
+
+.jumbotron{
+    background-color: rgba(220, 220, 220, 0.9);
+}
+
+
+#startbutton {
+    position: relative;
+    top: 50%;
+    left: 50%;
+
+}
+
+.player {
+    background-color: #ffffff;
+    height: 30%;
+    overflow: hidden;
+}
+
+.game-card{
+    margin: 2%;
+    background-color: white;
+}
+
+.first-player{
+    float: left;
+}
+
+.second-player{
+    float: right;
+}
+.game-card{
+    position: center;
+    overflow: hidden;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+    padding-bottom: 10px !important;
+    padding-top: 25px !important;
+
+}
+.lobby-cards{
+    position: center;
+    overflow: hidden;
+}
+.now-playing{
+    height: 30%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.answer-button {
+    margin-top: 5%;
+    text-align: center;
+}
+.create-button {
+    text-align: center;
+}
+.join-button {
+    text-align: center;
+    float: right;
+    float: bottom;
+    
+}
+.card-stuff-text{
+    padding-bottom: 30px;
+    text-align: center;
+}
+.modal-content {
+    height: 200px;
+}
+.modal{
+    top: 25%;
+}
+.blurred{
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+}
+
+.first-player h2{
+    color: green;
+}
+
+.second-player h2{
+    color: green;
+}
+
+.trivia{
+    margin-bottom: 5%;
+}
+
+.ol-center { text-align: center; list-style-position:inside;}
+
+.spotify-img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:90%;
+    height: 30px;
+    margin-bottom: 2%;
+}
+
+#helpButton{
+    background-color: #000;
+    border-color: black;
+    color: white;
+}
+
+#footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background: black;
+    color: white;
+}
+
+.navbar {
+    background-color: black;
+    font-size: 1.6em;
+}
+
+.navbar-brand{
+    font-size: 1.4em;
+}
+
+
+#login-dropdown-list{
+    margin-top: 2%;
+    position: relative;
+    background-color: black;
+    color: white;
+}
+
+.accounts-dialog{
+    border: none;
+    width: auto;
+}
+
+#login-name-link, #login-sign-in-link{
+    color: white;
+    text-decoration: none !important;
+    line-height: 20px;
+    padding-left: 15px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+#login-username, #login-password, #login-password-again{
+    color: black;
+}
+
+p.login-buttons-navbar{
+    margin-top: 13px;
+}
+
+@media (min-width: 768px) {
+    .navbar{
+        background-color: black;
+        font-size: 1.2em;
+
+    }
+
+    .navbar-brand{
+        font-size: 1.6em;
+    }
+
+}
+
+@media (min-width: 992px) {
+    #forfeitButton{
+        float: right !important;
+    }
+    .now-playing{
+        margin-top: 5%;
+    }
+    body{
+        background-size: cover;
+    }
 }
