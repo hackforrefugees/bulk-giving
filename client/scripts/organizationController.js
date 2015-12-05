@@ -26,6 +26,16 @@ Template.organization.helpers({
   hasAccessToNeed: function() {
     var user = Meteor.user();
     return user && (user.organization == this.organization);
-  },
+  }
 });
 
+
+Template.organizationNeed.helpers({
+  progress: function() {
+    var progress = (this.delivered / this.needed) * 100;
+    if (progress > 100) {
+      progress = 100
+    }
+    return progress;
+  }
+});

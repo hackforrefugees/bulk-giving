@@ -5,8 +5,7 @@
       <tr>
         <td><h4>Title</h4></td>
         <td><h4>Needed</h4></td>
-        <td><h4>Planned</h4></td>
-        <td><h4>Delivered</h4></td>
+        <td><h4>Progress</h4></td>
       </tr>
       {{#each organizationNeeds name}}
         <tr class="need-row">
@@ -37,6 +36,11 @@
 <template name="organizationNeed">
   <td>{{title}}</td>
   <td>{{needed}}</td>
-  <td>{{planned}}</td>
-  <td>{{delivered}}</td>
+  <td>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
+        <span class="sr-only">40% Complete (success)</span>
+      </div>
+    </div>
+  </td>
 </template>
