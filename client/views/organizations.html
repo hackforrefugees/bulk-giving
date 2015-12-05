@@ -13,7 +13,7 @@
 	<h3>Available organizations</h3>
 	<ul>
       {{#each organizations}}
-        {{> oneOrganization}}
+		<a href="{{pathFor route='organizations'}}/{{name}}">{{> oneOrganization}}</a>
       {{/each}}
     </ul>
 </template>
