@@ -1,17 +1,23 @@
 Meteor.subscribe("allOrganizations");
 
 Template.addOrganization.events({
-    "submit .new-organization": function (event) {
+    "submit .newOrg": function (event) {      
       // Prevent default browser form submit
       event.preventDefault();
  
       // Get value from form element
-      var text = event.target.text.value;
+      var name = event.target.organizationName.value;
+      var contact = event.target.contactPerson.value;
+      var contactEmail = event.target.contactPersonEmail.value;
 
-      Meteor.call("createOrganization", text); 
+      console.log("Name " +  name + " Contact " + contact + "  contactEmail " + contactEmail )
+
+      Meteor.call("createOrganization", {organizationName: name, contactPerson: contact, contactPersonEmail: contactEmail}); 
  
       // Clear form
-      event.target.text.value = "";
+      event.target.organizationName.value = "";
+      event.target.contactPerson.value = "";
+      event.target.contactPersonEmail.value = "";
 
     }
   });

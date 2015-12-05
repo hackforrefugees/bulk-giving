@@ -9,12 +9,17 @@ Meteor.publish("myOrganizations", function () {
 });
 
 Meteor.methods({
-    createOrganization: function(organizationName) {
+    createOrganization: function(organizationInformation) {
+        console.log(JSON.stringify(organizationInformation));
         var id = Meteor.userId();
         if(id != null) {
-            //returns the _id of the newly created record
-            Meteor.users.update({_id: id}, {$set:{organization: organizationName}})
-            var organizationId = Organizations.insert({name: organizationName, owner:id});
+            
+            Meteor.users.update({_id: id}, {$set:{organization: organizationInformation.organizationName}})
+
+            var organizationId = Organizations.insert({name: organizationInformation.organizationName, 
+                contactPerson: organizationInformation.contactPerson,
+                contactPersonEmail: organizationInformation.contactPersonEmail,
+                owner:id});
             return organizationId;
         }
     },
