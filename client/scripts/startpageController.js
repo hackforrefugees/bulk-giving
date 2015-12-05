@@ -4,6 +4,11 @@ Template.startpage.events({
         //Router.go('/home');
     },
     "click #organizationRedirect": function() {
-        Router.go('/signin');
+        if (Meteor.user() == null) {
+            Router.go('/signin');
+        } else {
+            Router.go('/organizations');
+        }
+        
     }
 });
