@@ -1,0 +1,35 @@
+<template name="organization">
+  <h1>[[organization name]]</h1>
+    <div class="container">
+    <header>
+      <h1>Our Current Needs</h1>
+    </header>
+    <table>
+      <tr class='bold'>
+        <td>Title</td>
+        <td>Needed</td>
+        <td>Planned</td>
+        <td>Delivered</td>
+      </tr>
+      {{#each needs}}
+        {{> need}}
+      {{/each}}
+    </table>    
+  </div>
+  <div>
+    <form class="new-need">
+        <input type="text" name="what" placeholder="What do you need?" />
+        <input type="text" name="amount" placeholder="How many?">
+        <input type="submit" value="Submit" >
+    </form>
+  </div>
+</template>
+
+<template name="organizationNeeds">
+  <tr>
+    <td>{{title}}</td>
+    <td>{{needed}}</td>
+    <td>{{planned}}</td>
+    <td>{{delivered}}</td>
+  </tr>
+</template>

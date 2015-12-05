@@ -12,12 +12,12 @@
 <template name="organizationList">
 	<ul>
       {{#each organizations}}
-        {{> organization}}
+        {{> oneOrganization}}
       {{/each}}
     </ul>
 </template>
 
-<template name="organization">
+<template name="oneOrganization">
 	<li>
       {{name}}
     </li>
