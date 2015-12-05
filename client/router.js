@@ -1,4 +1,4 @@
 Router.route('/',{
     template: 'home'
 });
-Router.route('/addOrganization');
+Router.route('/organizations');

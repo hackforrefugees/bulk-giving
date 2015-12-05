@@ -1,0 +1,32 @@
+<template name="organizations">	
+	<div id="aside" style="float: right">
+		<h3>You are not signed in. Please do</h3>
+		{{> loginButtons}}
+	</div>
+	<div id="section">	
+		{{> addOrganization}}
+		{{> organizationList}}			
+	</div>
+</template>
+
+<template name="organizationList">
+	<ul>
+      {{#each organizations}}
+        {{> organization}}
+      {{/each}}
+    </ul>
+</template>
+
+<template name="organization">
+	<li>
+      {{name}}
+    </li>
+</template>
+
+<template name="addOrganization" style="float:left">
+	<h2>Add a new organization</h2>
+	<form class="new-organization">
+		Organization name: 
+    	<input type="text" name="text" placeholder="Type to add new organization" />
+	</form>
+</template>

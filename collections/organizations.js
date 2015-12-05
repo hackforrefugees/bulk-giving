@@ -1,1 +1,1 @@
-Organizations = new Mongo.Collection("oragnizations");
+Organizations = new Mongo.Collection("organizations");
