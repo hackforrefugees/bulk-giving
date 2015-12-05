@@ -3,12 +3,14 @@
 </head>
 
 <body>
-  <h1>Welcome to Bulk-giving!</h1>
-
-  {{> hello}}
 </body>
 
-<template name="hello">
-  <button>Why not Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="addOrganization">
+	<form class="new-organization">
+    	<input type="text" name="text" placeholder="Type to add new organization" />
+	</form>
+</template>
+
+<template name="home">
+    <p>Hi there! Welcome to bulk-giving!</p>
 </template>
