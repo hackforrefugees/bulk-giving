@@ -33,9 +33,11 @@
     <td>{{needed}}</td>
     <td>{{planned}}</td>
     <td>{{delivered}}</td>
-    <form class="new-delivery">
-      <input type="text" name="amount" value=1>
-      <input type="submit" value="Delivered">
-    </form>
+    {{#if belongsToOrganization}}
+      <form class="new-delivery">
+        <input type="text" name="amount" value=1>
+        <input type="submit" value="Delivered">
+      </form>
+    {{/if}}
   </tr>
 </template>
