@@ -14,6 +14,10 @@ Template.organization.events({
 Template.organization.helpers({
   organizationNeeds: function() {
     return Needs.find({organization:this.name});
+  },
+  belongsToOrganization: function() {
+    var user = Meteor.user();
+    return user && (user.organization == this.name);
   }
 });
 

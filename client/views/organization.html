@@ -14,14 +14,16 @@
       {{#each organizationNeeds name}}
         {{> organizationNeed}}
       {{/each}}
-    </table>    
+    </table>
   </div>
   <div>
-    <form class="new-need">
-        <input type="text" name="what" placeholder="What do you need?" />
-        <input type="text" name="amount" placeholder="How many?">
-        <input type="submit" value="Submit" >
-    </form>
+    {{#if belongsToOrganization}}
+      <form class="new-need">
+          <input type="text" name="what" placeholder="What do you need?" />
+          <input type="text" name="amount" placeholder="How many?">
+          <input type="submit" value="Submit" >
+      </form>
+    {{/if}}
   </div>
 </template>
 
