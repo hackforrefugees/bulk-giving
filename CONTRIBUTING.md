@@ -1,3 +1,4 @@
-If you're looking for more people to help out with the project
-If there is someone else who will be managing the project, or if there's any organization involved
-Contact info to those parties in CONTACT.md
+We are in need of frontend developers and designers. We are also in need of people knowledgable of Meteor in general. 
+We also would appreciate the help of people with experience from volunteering for organizations collecting bulks.
+
+If you feel like contributing, please contact the project coordinator which can be found in CONTACT.md
