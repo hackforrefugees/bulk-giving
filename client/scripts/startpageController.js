@@ -1,7 +1,6 @@
 Template.startpage.events({
     "click #contributionRedirect": function() {
-        console.log('Yo');
-        //Router.go('/home');
+        Router.go('/organizations');
     },
     "click #organizationRedirect": function() {
         if (Meteor.user() == null) {
