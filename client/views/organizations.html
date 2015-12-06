@@ -9,7 +9,7 @@
     <div class="container">
         <div class="jumbotron container-fluid">
             <div class ="lobby-cards col-md-12 col-md-offset-1" >
-        		{{#each organizations}}
+        		{{#each organizationsSortedCaseInsensitive}}
         			<a href="{{pathFor route='organizations'}}/{{name}}">{{>organizationCard }}</a>
                 {{/each}}
             </div>
