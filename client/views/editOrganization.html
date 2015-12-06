@@ -1,0 +1,13 @@
+<template name="editOrganization">
+{{#if hasAccessToOrganization}}
+	<form class="editOrg">
+	      <label for="contactPerson">Contact Person:</label>
+	      <input type="text" class="form-control" name="contactPerson" value="{{contactPerson}}">
+	      <label for="contactPersonEmail">Contact person email address:</label>
+	      <input type="email" class="form-control" name="contactPersonEmail" value="{{contactPersonEmail}}">  
+	      <label for="mesage">A message for your page (this can be edited at any time):</label>
+	      <textarea name="message" class="form-control" cols="80" rows="8">{{message}}</textarea>
+	      <input type="submit" value="Update!">
+	</form>
+{{/if}}
+</template>
