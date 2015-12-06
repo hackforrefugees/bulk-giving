@@ -1,7 +1,88 @@
 <template name="startpage">
-	<h1> Welcome to bulk giving!</h1>
-	<p>Please indicate wether you are an organization looking for help, or if you are an individual looking to help out!</p>
-	<div class="container-fluid">
+	<header>
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- <img class="img-responsive" src="img/profile.png" alt=""> -->
+                    <div class="intro-text">
+                        <span class="name">Welcome to bulkgiving!</span>
+                        <hr class="star-light">
+                        <div class="row">
+                        	<div class="col-lg-8 col-lg-offset-2 text-center">
+	        		            <a href="#" class="btn btn-lg btn-outline">
+	                	        	<i class="fa fa-star"></i> Read more about us
+	    	            	    </a>
+		               		</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+	</header>
+
+	<section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>What do you want to do?</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 portfolio-item">
+                	<h3 style="text-align:center;color:#18bc9c">LOG IN</h3>
+                    <a href="[[ take me here ]]" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+								LOG IN 
+                            </div>
+                        </div>
+                        <img src="images/frontpage/cabin.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 portfolio-item">
+					<h3 style="text-align:center;color:#18bc9c">Create new list</h3>
+                    <a href="[[Take me there ]]" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                            	CREATE NEW LIST
+                            </div>
+                        </div>
+                        <img src="images/frontpage/cake.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>	
+
+	<section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>BulkGiving is a platform where organizations in need and people willing to give are connected. </p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Giving is caring! </p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="#" class="btn btn-lg btn-outline">
+                        <i class="fa fa-download"></i> Give now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- 	<p>Please indicate wether you are an organization looking for help, or if you are an individual looking to help out!</p> -->
+<!-- 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<a id="organizationRedirect" class="btn btn-info btn-block">I am an organization in need of help!</a>
@@ -14,5 +95,5 @@
 			</div>
 		</div>
 		
-    </div>
+    </div> -->
 </template>

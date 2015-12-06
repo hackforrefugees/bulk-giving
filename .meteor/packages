@@ -6,7 +6,6 @@
 
 insecure
 iron:router
-twbs:bootstrap
 accounts-ui
 accounts-password
 standard-minifiers

@@ -1,28 +1,38 @@
 <template name="organization">
-  <div class="container">
-    <h1>Welcome to {{name}}</h1>
-    {{> organizationInformation}}
-    <table class="table needs-table">
-      <tr>
-        <td><h4>Title</h4></td>
-        <td><h4>Needed</h4></td>
-        <td><h4>Planned</h4></td>
-        <td><h4>Progress</h4></td>
-      </tr>
-      {{#each organizationNeeds name}}
-          {{> organizationNeed}}
-      {{/each}}
-    </table>
-    {{#if hasAccess}}
-      <div>
-        <form class="new-need need-form">
-          <input type="text" name="what" placeholder="What do you need?" />
-          <input type="text" name="amount" placeholder="How many?">
-          <button type="submit" class="btn btn-success">Submit</button>
-        </form>
+  <section class="about"> 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-lg-offset-2 text-center">
+          <h1>Welcome to {{name}}</h1>
+          {{> organizationInformation}}
+        </div>
       </div>
-    {{/if}}
+      <div class="row"> 
+        <div class="col-sm-8 col-lg-offset-2">
+          <table class="table needs-table">
+            <tr>
+              <td><h4>Title</h4></td>
+              <td><h4>Needed</h4></td>
+              <td><h4>Planned</h4></td>
+              <td><h4>Progress</h4></td>
+            </tr>
+            {{#each organizationNeeds name}}
+                {{> organizationNeed}}
+            {{/each}}
+          </table>
+          {{#if hasAccess}}
+            <div>
+              <form class="new-need need-form">
+                <input type="text" name="what" placeholder="What do you need?" />
+                <input type="text" name="amount" placeholder="How many?">
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            </div>
+          {{/if}}
+        </div>
+      </div>
     </div>
+  </section>
 </template>
 
 <template name="organizationInformation" >  
