@@ -7,11 +7,6 @@ Template.organization.events({
       var need = event.target.what.value;
       var amount = event.target.amount.value;
       Meteor.call("addNeed", need, amount, this.name, this._id);
-    },
-    "submit .new-delivery": function (event) {
-      event.preventDefault();
-      var amount = parseInt(event.target.amount.value);
-      Meteor.call("addDelivery", this._id, this.organization, amount);
     }
 });
 
@@ -38,7 +33,16 @@ Template.organizationNeed.events({
     var name = event.target.name.value;
     var amount = parseInt(event.target.amount.value);
     var expectedDelivery = event.target.expectedDelivery.value;
-    Meteor.call("addDonation", this._id, name, amount, expectedDelivery);
+    Meteor.call("addPlannedDonation", this._id, name, amount, expectedDelivery);
+  },
+  "submit .delivered": function (event) {
+    event.preventDefault();
+    var delivered = event.target.delivered.checked;
+    if (delivered == true) {
+      Meteor.call("addDonation", this._id);
+    } else {
+      Meteor.call("removeDonation", this._id);
+    }
   }
 });
 
