@@ -53,5 +53,9 @@ Template.organizationNeed.helpers({
   hasAccess: function() {
     var user = Meteor.user();
     return user && (user.organization == this.organization);
+  },
+  donations: function() {
+    Meteor.subscribe('donations', this._id);
+    return Donations.find({ needId: this._id });
   }
 });
