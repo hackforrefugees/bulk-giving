@@ -56,15 +56,12 @@
     <td>
       <button data-toggle="collapse" data-target="#{{_id}}" type="submit" class="btn btn-success">Donate</button>
     </td>
-    {{#if hasAccess}}
-      <td>
-        <form class="new-delivery">
-          <input type="text" name="amount" value=1>
-          <button type="submit" class="btn btn-success">Delivered</button>
-        </form>
-      </td>
-    {{/if}}
   </tr>
+  {{#if hasAccess}}
+    {{#each donations}}
+        {{> donation}}
+    {{/each}}
+  {{/if}}
   <tr class="donate-row collapse out" id={{_id}}>
     <td>
       <form class="new-donation">
@@ -72,6 +69,20 @@
         <input type="number" name="amount" placeholder="Amount">
         <input type="datetime" name="expectedDelivery" placeholder="When can you deliver?">
         <button type="submit" data-toggle="collapse" data-target="#{{_id}}" class="btn btn-primary">Save</button>
+      </form>
+    </td>
+  </tr>
+</template>
+
+<template name="donation">
+  <tr class="donation-row">
+    <td>{{name}}</td>
+    <td>{{amount}}</td>
+    <td>{{expectedDelivery}}</td>
+    <td>
+      <form class="delivered">
+        <input type="checkbox" name="delivered" checked="{{delivered}}">
+        <button type="submit" class="btn btn-primary">Save</button>
       </form>
     </td>
   </tr>
