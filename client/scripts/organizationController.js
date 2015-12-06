@@ -35,9 +35,8 @@ Template.organizationNeed.events({
     var expectedDelivery = event.target.expectedDelivery.value;
     Meteor.call("addPlannedDonation", this._id, name, amount, expectedDelivery);
   },
-  "submit .delivered": function (event) {
-    event.preventDefault();
-    var delivered = event.target.delivered.checked;
+  "change .delivered": function(event) {
+    var delivered = event.target.checked;
     if (delivered == true) {
       Meteor.call("addDonation", this._id);
     } else {
