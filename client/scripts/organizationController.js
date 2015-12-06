@@ -19,16 +19,21 @@ Template.organization.helpers({
   organizationNeeds: function() {
     return Needs.find({organization:this.name});
   },
-  hasAccessToOrganization: function() {
+  hasAccess: function() {
     var user = Meteor.user();
     return user && (user.organization == this.name);
-  },
-  hasAccessToNeed: function() {
-    var user = Meteor.user();
-    return user && (user.organization == this.organization);
   }
 });
 
+Template.organizationNeed.events({
+  "submit .new-donation": function (event) {
+    event.preventDefault();
+    var name = event.target.name.value;
+    var amount = parseInt(event.target.amount.value);
+    var expectedDelivery = event.target.expectedDelivery.value;
+    Meteor.call("addDonation", this._id, name, amount, expectedDelivery);
+  }
+});
 
 Template.organizationNeed.helpers({
   progress: function() {
@@ -37,5 +42,9 @@ Template.organizationNeed.helpers({
       progress = 100
     }
     return progress;
+  },
+  hasAccess: function() {
+    var user = Meteor.user();
+    return user && (user.organization == this.organization);
   }
 });

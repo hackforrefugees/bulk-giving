@@ -35,6 +35,10 @@ Meteor.methods({
         if(user.organization == organization) {
             Needs.update({_id: id}, {$inc: {delivered: amount}});
         }
+    },
+    addDonation: function(needId, name, amount, expectedDelivery) {
+        Donations.insert({needId: needId, name: name, amount: amount, expectedDelivery: expectedDelivery});
+        Needs.update({_id: needId}, {$inc: {planned: amount}});
     }
 });
 
