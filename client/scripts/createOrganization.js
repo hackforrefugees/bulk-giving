@@ -7,10 +7,11 @@ Template.createOrganization.events({
       var name = event.target.organizationName.value;
       var contact = event.target.contactPerson.value;
       var contactEmail = event.target.contactPersonEmail.value;
+      var message = event.target.message.value;
 
       console.log("Name " +  name + " Contact " + contact + "  contactEmail " + contactEmail )
 
-      Meteor.call("createOrganization", {organizationName: name, contactPerson: contact, contactPersonEmail: contactEmail}); 
+      Meteor.call("createOrganization", {organizationName: name, contactPerson: contact, contactPersonEmail: contactEmail, message:message}); 
  
       // Clear form
       event.target.organizationName.value = "";

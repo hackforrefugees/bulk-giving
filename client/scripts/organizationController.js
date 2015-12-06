@@ -15,10 +15,17 @@ Template.organization.events({
     }
 });
 
+//Registring this as helper allows us to re-use it in more than one template
+Template.registerHelper("hasAccessToOrganization", function() {
+    var user = Meteor.user();
+    return user && (user.organization == this.name);
+});
+
 Template.organization.helpers({
   organizationNeeds: function() {
     return Needs.find({organization:this.name});
   },
+  
   hasAccess: function() {
     var user = Meteor.user();
     return user && (user.organization == this.name);

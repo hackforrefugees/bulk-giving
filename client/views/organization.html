@@ -1,6 +1,7 @@
 <template name="organization">
   <div class="container">
     <h1>Welcome to {{name}}</h1>
+    {{> organizationInformation}}
     <table class="table needs-table">
       <tr>
         <td><h4>Title</h4></td>
@@ -22,6 +23,13 @@
       </div>
     {{/if}}
     </div>
+</template>
+
+<template name="organizationInformation" >  
+  {{#if hasAccessToOrganization}}
+    <p><a id="organizationRedirect" href="{{pathFor route='organizations'}}/{{name}}/edit" class="btn btn-info">Edit my organization</a></p>
+  {{/if}}
+  {{message}}
 </template>
 
 <template name="organizationNeed">
