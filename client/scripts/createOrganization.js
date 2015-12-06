@@ -22,7 +22,6 @@ Template.createOrganization.events({
 
 Template.createOrganization.helpers({
     hasNoOrganization: function () {
-      console.log(JSON.stringify(Meteor.user()));
       if(Meteor.user().organization) {        
         Meteor.defer(function() {
           Router.go("/organizations/"+Meteor.user().organization);

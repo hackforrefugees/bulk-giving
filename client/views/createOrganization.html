@@ -1,7 +1,9 @@
 <template name="createOrganization">
   {{#if currentUser}}
-    I r logged in
     {{#if hasNoOrganization}}
+      <h2>This account has not yet created an organizaion</h2>
+      <p>Please fill out the below form to create your organization. Once your organization is created you will be provided with a page for your organization</p>
+
       <form class="newOrg">	 
 			 <label for="organizationName">Organization name:</label>
   		  <input type="text" class="form-control" name="organizationName">

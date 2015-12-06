@@ -1,6 +1,11 @@
 <template name="signin">
-    <div class="{{atClass}}" style="max-width : 500px; margin : auto;">
-        {{> atForm }}
-    </div>
+	{{#if currentUser}}
+		<!-- If already logged in, go to creation. It will redirect you if already created -->
+		{{goToCreation}}
+	{{else}}
+    	<div class="{{atClass}}" style="max-width : 500px; margin : auto;">
+        	{{> atForm }}
+    	</div>
+	{{/if}}
     
 </template>
