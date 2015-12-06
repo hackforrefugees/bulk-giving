@@ -4,23 +4,23 @@
 		</div>
 	</template>
 
-	<template name="organizationList">
-		<section class="about">
-			<div class="row">
-				<div class="col-sm-6 portfolio-item text-center col-lg-offset-3">
-                	<h3 style="text-align:center">Available organizations</h3>
-						<ul class="organization-list">
-					      {{#each organizations}}
-							<a href="{{pathFor route='organizations'}}/{{name}}">{{> oneOrganization}}</a>
-					      {{/each}}
-					    </ul>
-                </div>	
-			</div>
-	   </section>
-	</template>
+<template name="organizationList">	
+	<center><h3>Click on an organization to see what they need</h3></center>
+    <div class="container">
+        <div class="jumbotron container-fluid">
+            <div class ="lobby-cards col-md-12 col-md-offset-1" >
+        		{{#each organizations}}
+        			<a href="{{pathFor route='organizations'}}/{{name}}">{{>organizationCard }}</a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</template>
 
-	<template name="oneOrganization">
-		<li>
-	      {{name}}
-	    </li>
-	</template>
+<template name = 'organizationCard	'> 
+ <div class="jumbotron organization-card col-md-2">
+    <div class='card-stuff-text'>
+        <h3>{{name}}</h3>
+    </div>
+ </div>
+</template>

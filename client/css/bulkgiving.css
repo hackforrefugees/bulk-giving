@@ -537,10 +537,17 @@ body {
     overflow: hidden;
 }
 
-.game-card{
+.organization-card{
     margin: 2%;
-    background-color: white;
+    background-color: #1FA4B6;
+    position: center;
+    overflow: hidden;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+    padding-bottom: 10px !important;
+    padding-top: 25px !important;
 }
+
 
 .first-player{
     float: left;
@@ -584,6 +591,7 @@ body {
 .card-stuff-text{
     padding-bottom: 30px;
     text-align: center;
+    color: white;
 }
 .modal-content {
     height: 200px;
