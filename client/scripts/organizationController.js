@@ -60,5 +60,8 @@ Template.organizationNeed.helpers({
   donations: function() {
     Meteor.subscribe('donations', this._id);
     return Donations.find({ needId: this._id });
+  },
+  needLeft: function() {
+    return this.needed - this.delivered;
   }
 });
