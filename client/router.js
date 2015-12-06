@@ -26,7 +26,4 @@ Router.route('/organizations/:name/edit', function() {
 		return Organizations.findOne({name: name}) 
 	}})
 });
-Router.route('/organizations/(.*)', function() {
-	this.render("organizations"); 
-});
 Router.route('/signin');
