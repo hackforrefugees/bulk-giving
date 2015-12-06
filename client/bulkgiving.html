@@ -18,6 +18,8 @@
 					{{#if currentUser}}
 						<li><a href="#">Logged in as {{getUserName}}</a></li>
 						<li><a id="logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+					{{else}}
+						<li><a id="login"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
 					{{/if}}
 	  			</ul>
 			</div>
