@@ -3,14 +3,15 @@ Template.editOrganization.events({
       // Prevent default browser form submit
       event.preventDefault();
  
+      var organizationName = this.name;
       // Get value from form element
       var contact = event.target.contactPerson.value;
       var contactEmail = event.target.contactPersonEmail.value;
       var message = event.target.message.value;
 
-      Meteor.call("editOrganization", {organizationName: this.name, contactPerson: contact, contactPersonEmail: contactEmail, message:message}, function (error, response)
+      Meteor.call("editOrganization", {organizationName: organizationName, contactPerson: contact, contactPersonEmail: contactEmail, message:message}, function (error, response)
         {
-          Router.go("/organizations/"+this.name);
+          Router.go("/organizations/"+organizationName);
         }); 
  
       // Clear form      
