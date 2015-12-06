@@ -8,20 +8,10 @@
         <td><h4>Progress</h4></td>
       </tr>
       {{#each organizationNeeds name}}
-        <tr class="need-row">
           {{> organizationNeed}}
-          {{#if hasAccessToNeed}}
-            <td>
-              <form class="new-delivery">
-                <input type="text" name="amount" value=1>
-                <button type="submit" class="btn btn-success">Delivered</button>
-              </form>
-            </td>
-          {{/if}}
-        </tr>
       {{/each}}
     </table>
-    {{#if hasAccessToOrganization}}
+    {{#if hasAccess}}
       <div>
         <form class="new-need need-form">
           <input type="text" name="what" placeholder="What do you need?" />
@@ -34,12 +24,22 @@
 </template>
 
 <template name="organizationNeed">
-  <td>{{title}}</td>
-  <td>{{needed}}</td>
-  <td>
-    <div class="progress">
-      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
+  <tr class="need-row">
+    <td>{{title}}</td>
+    <td>{{needed}}</td>
+    <td>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
+        </div>
       </div>
-    </div>
-  </td>
+    </td>
+    {{#if hasAccess}}
+      <td>
+        <form class="new-delivery">
+          <input type="text" name="amount" value=1>
+          <button type="submit" class="btn btn-success">Delivered</button>
+        </form>
+      </td>
+    {{/if}}
+  </tr>
 </template>
