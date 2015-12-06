@@ -5,6 +5,7 @@
       <tr>
         <td><h4>Title</h4></td>
         <td><h4>Needed</h4></td>
+        <td><h4>Planned</h4></td>
         <td><h4>Progress</h4></td>
       </tr>
       {{#each organizationNeeds name}}
@@ -27,6 +28,7 @@
   <tr class="need-row">
     <td>{{title}}</td>
     <td>{{needed}}</td>
+    <td>{{planned}}</td>
     <td>
       <div class="progress">
         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
@@ -47,11 +49,11 @@
   </tr>
   <tr class="donate-row collapse out" id={{_id}}>
     <td>
-      <form class="donation-form">
+      <form class="new-donation">
         <input type="text" name="name" placeholder="Your name">
         <input type="number" name="amount" placeholder="Amount">
-        <input type="datetime" name="time" placeholder="When can you deliver?">
-        <button type="submit" class="btn btn-primary">Save</button>
+        <input type="datetime" name="expectedDelivery" placeholder="When can you deliver?">
+        <button type="submit" data-toggle="collapse" data-target="#{{_id}}" class="btn btn-primary">Save</button>
       </form>
     </td>
   </tr>

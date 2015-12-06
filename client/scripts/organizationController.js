@@ -25,6 +25,15 @@ Template.organization.helpers({
   }
 });
 
+Template.organizationNeed.events({
+  "submit .new-donation": function (event) {
+    event.preventDefault();
+    var name = event.target.name.value;
+    var amount = parseInt(event.target.amount.value);
+    var expectedDelivery = event.target.expectedDelivery.value;
+    Meteor.call("addDonation", this._id, name, amount, expectedDelivery);
+  }
+});
 
 Template.organizationNeed.helpers({
   progress: function() {
