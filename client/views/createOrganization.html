@@ -1,0 +1,16 @@
+<template name="createOrganization">
+  {{#if hasNoOrganization}}
+	<form class="newOrg">	 
+			<label for="organizationName">Organization name:</label>
+  		<input type="text" class="form-control" name="organizationName">
+  		<label for="contactPerson">Contact Person:</label>
+			<input type="text" class="form-control" name="contactPerson">
+			<label for="contactPersonEmail">Contact person email address:</label>
+  		<input type="email" class="form-control" name="contactPersonEmail">
+		  <input type="submit" value="Create!">
+    </form>
+  {{else}}
+  <h3>This is not the page you are looking for</h3>
+  <p>This account is already connected to an oganization. Please stand by while we redirect your browser</p>
+  {{/if}}  
+</template>

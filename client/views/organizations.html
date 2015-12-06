@@ -1,10 +1,5 @@
 <template name="organizations">	
-	<div id="section">	
-		{{#if currentUser}}
-			{{> addOrganization}}		
-		{{else}}
-		<h3>You are not signed in. Please sign in to add organizations</h3>
-		{{/if}}
+	<div id="section">
 		{{> organizationList}}
 	</div>
 </template>
@@ -22,20 +17,4 @@
 	<li>
       {{name}}
     </li>
-</template>
-
-<template name="addOrganization">
-
-	<button type="button" class="btn btn-info btn-lg" data-toggle="collapse" data-target="#demo">Register a new organization</button>
-  	<div id="demo" class="collapse out">
-    	<form class="newOrg">	 
-    			<label for="organizationName">Organization name:</label>
-	    		<input type="text" class="form-control" name="organizationName">
-	    		<label for="contactPerson">Contact Person:</label>
-    			<input type="text" class="form-control" name="contactPerson">
-    			<label for="contactPersonEmail">Contact person email address:</label>
-	    		<input type="email" class="form-control" name="contactPersonEmail">
-  			<input type="submit" value="Create!">
-		</form>
-  	</div>
 </template>

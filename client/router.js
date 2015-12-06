@@ -2,6 +2,7 @@ Router.route('/',{
     template: 'startpage'
 });
 Router.route('/home');
+Router.route('/createOrganization');
 Router.route('/organizations');
 Router.route('/organizations/:name', function() {
 	var name  =this.params.name;

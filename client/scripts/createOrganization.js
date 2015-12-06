@@ -1,6 +1,4 @@
-Meteor.subscribe("allOrganizations");
-
-Template.addOrganization.events({
+Template.createOrganization.events({
     "submit .newOrg": function (event) {      
       // Prevent default browser form submit
       event.preventDefault();
@@ -20,10 +18,15 @@ Template.addOrganization.events({
       event.target.contactPersonEmail.value = "";
 
     }
-  });
+});
 
-Template.organizationList.helpers({
-    organizations: function() {
-      return Organizations.find({});
+Template.createOrganization.helpers({
+    hasNoOrganization: function () {
+      console.log(JSON.stringify(Meteor.user()));
+      if(Meteor.user().organization) {
+        Meteor.defer(function() {
+          
+        });
+      }
     }
 });
