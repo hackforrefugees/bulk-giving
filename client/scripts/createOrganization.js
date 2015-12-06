@@ -23,10 +23,18 @@ Template.createOrganization.events({
 Template.createOrganization.helpers({
     hasNoOrganization: function () {
       console.log(JSON.stringify(Meteor.user()));
-      if(Meteor.user().organization) {
+      if(Meteor.user().organization) {        
         Meteor.defer(function() {
-          
+          Router.go("/organizations/"+Meteor.user().organization);
         });
+        return false;
       }
+      return true;
+    },
+
+    signin: function () {
+      Meteor.defer( function () {
+        Router.go("/signin");        
+      });
     }
 });
