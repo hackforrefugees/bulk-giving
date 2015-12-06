@@ -6,7 +6,7 @@ Template.startpage.events({
         if (Meteor.user() == null) {
             Router.go('/signin');
         } else {
-            Router.go('/organizations');
+            Router.go('/createOrganization');
         }
         
     }
