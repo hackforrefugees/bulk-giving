@@ -480,19 +480,22 @@ body {
     bottom: 0;
 }
 
-.needs-table {
-    width: 80%;
-    border-collapse: separate;
-    border-spacing: 0 .5em;
+.donation-row {
+    line-height: 1.5em;
+    text-align: left;
 }
 
 .need-row {
     background-color: #0099FF;
-    line-height: 3em;
-    text-align: center;
+    line-height: 4em;
+    text-align: left;
 }
 
-.need-form {
+.need-progress {
+    margin-top: 1.4em;
+}
+
+.form {
     line-height: 3em;
 }
 
