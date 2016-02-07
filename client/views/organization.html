@@ -23,7 +23,7 @@
   </section>
 </template>
 
-<template name="organizationInformation" >
+<template name="organizationInformation">
   {{#if hasAccessToOrganization}}
     <p><a id="organizationRedirect" href="{{pathFor route='organizations'}}/{{name}}/edit" class="btn btn-info">Edit my organization</a></p>
   {{/if}}
@@ -32,9 +32,20 @@
 
 <template name="organizationNeed">
   <div class="col-md-4 list-group-item {{needUrgency}}">
-    <div>{{title}} - {{needUrgencyText}}</div>
+    <div><h4>{{title}}</h4></div>
+    
+    {{#if hasAccess}}
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Change Status
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><button type="button" class="btn btn-success btn-block btn-xs" id="low">Low</button></li>
+          <li><button type="button" class="btn btn-warning btn-block btn-xs" id="medium">Medium</button></li>
+          <li><button type="button" class="btn btn-danger  btn-block btn-xs" id="high">High</button></li>
+        </ul>
+      </div>
+    {{/if}}
   </div>
-  {{#if hasAccess}}
-  <!-- Changing needs goes here -->
-  {{/if}}
 </template>

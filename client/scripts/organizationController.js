@@ -27,20 +27,16 @@ Template.organization.helpers({
 });
 
 Template.organizationNeed.events({
-  "submit .new-donation": function (event) {
-    event.preventDefault();
-    var name = event.target.name.value;
-    var amount = parseInt(event.target.amount.value);
-    var expectedDelivery = event.target.expectedDelivery.value;
-    Meteor.call("addPlannedDonation", this._id, name, amount, expectedDelivery);
+  "click #low": function(event) {
+    Meteor.call("modifyNeed", this.title, "LOW", this.organization);
   },
-  "change .delivered": function(event) {
-    var delivered = event.target.checked;
-    if (delivered == true) {
-      Meteor.call("addDonation", this._id);
-    } else {
-      Meteor.call("removeDonation", this._id);
-    }
+
+  "click #medium": function(event) {
+    Meteor.call("modifyNeed", this.title, "MEDIUM", this.organization);
+  },
+
+  "click #high": function(event) {
+    Meteor.call("modifyNeed", this.title, "HIGH", this.organization);
   }
 });
 
@@ -48,30 +44,6 @@ Template.organizationNeed.helpers({
   hasAccess: function() {
     var user = Meteor.user();
     return user && (user.organization == this.organization);
-  },
-
-  needProgressType: function() {
-    if(this.need == "HIGH") {
-      return "progress-bar-danger";
-    } else if (this.need == "MEDIUM") {
-      return "progress-bar-warning";
-    } else if (this.need == "LOW") {
-      return "progress-bar-success";
-    } else {
-      return "progress-bar-info";
-    }
-  },
-
-  needProgressLength: function() {
-    if(this.need == "HIGH") {
-      return "20";
-    } else if (this.need == "MEDIUM") {
-      return "50";
-    } else if (this.need == "LOW") {
-      return "80";
-    } else {
-      return "50";
-    }
   },
 
   needUrgency: function() {
