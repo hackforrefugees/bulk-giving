@@ -1,38 +1,24 @@
 <template name="organization">
   <section class="about">
-    <div class="container col-lg-offset-2">
-      <div class="row">
-        <div class="col-sm-8 text-center">
-          <h1>Welcome to {{name}}</h1>
-          {{> organizationInformation}}
-        </div>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Welcome to {{name}}</h1>
+        <p>{{> organizationInformation}}</p>
       </div>
-      <br>
-      <br>
-      <div class="col-sm-8">
+      <div class="col-md-12 list-group">
+      {{#each organizationNeeds name}}
+        {{> organizationNeed}}
+      {{/each}}
+      </div>
+      {{#if hasAccess}}
         <div class="row">
-          <div class="col-sm-3"><h4>Title</h4></div>
-          <div class="col-sm-2"><h4>Needed</h4></div>
-          <div class="col-sm-2"><h4>Planned</h4></div>
-          <div class="col-sm-5"><h4>Progress</h4></div>
+          <form class="new-need form">
+            <input class="col-sm-4" type="text" name="what" placeholder="What do you need?">
+            <div class="col-sm-1"></div>
+            <button type="submit" class="btn btn-success col-sm-2">Submit</button>
+          </form>
         </div>
-        {{#each organizationNeeds name}}
-          {{> organizationNeed}}
-        {{/each}}
-        <br>
-        <br>
-        {{#if hasAccess}}
-          <div class="row">
-            <form class="new-need form">
-              <input class="col-sm-4" type="text" name="what" placeholder="What do you need?">
-              <div class="col-sm-1"></div>
-              <input class="col-sm-4" type="text" name="amount" placeholder="How many?">
-              <div class="col-sm-1"></div>
-              <button type="submit" class="btn btn-success col-sm-2">Submit</button>
-            </form>
-          </div>
-        {{/if}}
-      </div>
+      {{/if}}
     </div>
   </section>
 </template>
@@ -45,59 +31,10 @@
 </template>
 
 <template name="organizationNeed">
-  <div class="row need-row">
-    <div class="col-sm-3">{{title}}</div>
-    <div class="col-sm-2">{{needLeft}}</div>
-    <div class="col-sm-2">{{planned}}</div>
-    <div class="col-sm-3">
-      <div class="progress need-progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%">
-        </div>
-        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{promisedProgress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{promisedProgress}}%">
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <button data-toggle="collapse" data-target="#{{_id}}" type="submit" class="btn btn-success">Donate</button>
-    </div>
+  <div class="col-md-4 list-group-item {{needUrgency}}">
+    <div>{{title}} - {{needUrgencyText}}</div>
   </div>
   {{#if hasAccess}}
-    <br>
-    <div class="row donation-row">
-      <div class="col-sm-4"><h5>Name</h5></div>
-      <div class="col-sm-2"><h5>Amount</h5></div>
-      <div class="col-sm-4"><h5>Expected delivery</h5></div>
-      <div class="col-sm-2"><h5>Delivered?</h5></div>
-    </div>
-    {{#each donations}}
-        <hr>
-        {{> donation}}
-    {{/each}}
-    <hr>
+  <!-- Changing needs goes here -->
   {{/if}}
-  <div class="row donation-row collapse out" id={{_id}}>
-    <form class="new-donation form">
-      <input class="col-sm-3" type="text" name="name" placeholder="Your name">
-      <div class="col-sm-1"></div>
-      <input class="col-sm-1" type="number" name="amount" placeholder="Amount">
-      <div class="col-sm-1"></div>
-      <input class="col-sm-3" type="datetime" name="expectedDelivery" placeholder="When can you deliver?">
-      <div class="col-sm-1"></div>
-      <button type="submit" data-toggle="collapse" data-target="#{{_id}}" class="btn btn-success cols-sm-2">Save</button>
-    </form>
-  </div>
-  <br>
-</template>
-
-<template name="donation">
-  <div class="row donation-row">
-    <div class="col-sm-4">{{name}}</div>
-    <div class="col-sm-2">{{amount}}</div>
-    <div class="col-sm-4">{{expectedDelivery}}</div>
-    <div class="col-sm-2">
-      <form class="delivered">
-        <input type="checkbox" name="delivered" checked="{{delivered}}">
-      </form>
-    </div>
-  </div>
 </template>

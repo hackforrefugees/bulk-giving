@@ -480,19 +480,10 @@ body {
     bottom: 0;
 }
 
-.donation-row {
-    line-height: 1.5em;
-    text-align: left;
-}
-
 .need-row {
     background-color: #0099FF;
     line-height: 4em;
     text-align: left;
-}
-
-.need-progress {
-    margin-top: 1.4em;
 }
 
 .form {
