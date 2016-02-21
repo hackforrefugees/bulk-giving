@@ -42,7 +42,7 @@ Template.organization.helpers({
 
 Template.categoryNeeds.helpers({
   organizationNeeds: function() {
-    return Needs.find({organization:this.organization, category:this.title});
+    return Needs.find({organization:this.organization, category:this._id});
   },
 });
 
@@ -67,7 +67,7 @@ Template.organizationNeed.events({
 Template.categoryButton.events({
   "click .categoryButton": function(event) {
     var parent = Template.parentData(); //Parent template is 'need - used to find what need we are changing
-    Meteor.call("setNeedCategory", parent._id, this.title, this.organization);
+    Meteor.call("setNeedCategory", parent._id, this._id, this.organization);
   }
 });
 
