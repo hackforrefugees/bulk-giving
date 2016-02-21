@@ -6,16 +6,33 @@
         <p>{{> organizationInformation}}</p>
       </div>
       <div class="col-md-12 list-group">
-      {{#each organizationNeeds name}}
-        {{> organizationNeed}}
-      {{/each}}
+
+        {{#each organizationCategories name}}
+          {{> categoryNeeds}}
+        {{/each}}
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Uncategorized needs</div>
+          <div class="panel-body">
+            {{#each uncategorizedOrganizationNeeds}}
+              {{> organizationNeed}}
+            {{/each}}
+          </div>
+        </div>
       </div>
       {{#if hasAccess}}
         <div class="row">
           <form class="new-need form">
             <input class="col-sm-4" type="text" name="what" placeholder="What do you need?">
             <div class="col-sm-1"></div>
-            <button type="submit" class="btn btn-success col-sm-2">Submit</button>
+            <button type="submit" class="btn btn-success col-sm-2">Submit new need</button>
+          </form>
+        </div>
+        <div class="row">
+          <form class="new-category form">
+            <input class="col-sm-4" type="text" name="what" placeholder="Create category">
+            <div class="col-sm-1"></div>
+            <button type="submit" class="btn btn-success col-sm-2">Submit new category</button>
           </form>
         </div>
       {{/if}}
@@ -30,10 +47,21 @@
   {{message}}
 </template>
 
+<template name="categoryNeeds">
+  <div class="panel panel-default">
+    <div class="panel-heading">{{title}}</div>
+      <div class="panel-body">
+      {{#each organizationNeeds}}
+        {{> organizationNeed}}
+      {{/each}}
+    </div>
+  </div>
+</template>
+
 <template name="organizationNeed">
   <div class="col-md-4 list-group-item {{needUrgency}}">
     <div><h4>{{title}}</h4></div>
-    
+
     {{#if hasAccess}}
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -47,6 +75,22 @@
         </ul>
         <button class="btn btn-default pull-right" type="button" id="deleteButton"><span class="glyphicon glyphicon-remove"></span>Delete</button>
       </div>
+
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Change category
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuCategory">
+          {{#each organizationCategories organization}}
+            {{> categoryButton}}
+          {{/each}}
+        </ul>
+      </div>
     {{/if}}
   </div>
+</template>
+
+<template name="categoryButton">
+  <li><button type="button" class="btn btn-success btn-block btn-xs categoryButton" id="{{title}}" >{{title}}</button></li>
 </template>

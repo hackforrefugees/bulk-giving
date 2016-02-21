@@ -22,5 +22,12 @@ Meteor.methods({
         if(user.organization == organizationName) {
             Needs.remove({_id:id});
         }
+    },
+
+    setNeedCategory: function(id, category, organizationName) {
+        var user = Meteor.users.findOne(this.userId);
+        if(user.organization == organizationName) {
+            Needs.update({_id:id}, { $set: {category: category}});
+        }
     }
 });
