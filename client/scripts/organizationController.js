@@ -43,7 +43,14 @@ Template.organization.helpers({
 Template.categoryNeeds.helpers({
   organizationNeeds: function() {
     return Needs.find({organization:this.organization, category:this._id});
-  },
+  }
+
+});
+
+Template.categoryNeeds.events({
+  "click #deleteButton": function(event) {
+    Meteor.call("deleteCategory", this._id, this.organization);
+  }
 });
 
 Template.organizationNeed.events({
