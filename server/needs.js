@@ -10,10 +10,17 @@ Meteor.methods({
         }
     },
 
-    modifyNeed: function(title, amount, organizationName) {
+    modifyNeed: function(id, amount, organizationName) {
         var user = Meteor.users.findOne(this.userId);
         if(user.organization == organizationName) {
-            var needId = Needs.update({title: title}, { $set: {need: amount}});
+            var needId = Needs.update({_id: id}, { $set: {need: amount}});
+        }
+    },
+
+    deleteNeed: function(id, organizationName) {
+        var user = Meteor.users.findOne(this.userId);
+        if(user.organization == organizationName) {
+            Needs.remove({_id:id});
         }
     }
 });

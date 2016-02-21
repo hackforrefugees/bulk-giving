@@ -28,15 +28,19 @@ Template.organization.helpers({
 
 Template.organizationNeed.events({
   "click #low": function(event) {
-    Meteor.call("modifyNeed", this.title, "LOW", this.organization);
+    Meteor.call("modifyNeed", this._id, "LOW", this.organization);
   },
 
   "click #medium": function(event) {
-    Meteor.call("modifyNeed", this.title, "MEDIUM", this.organization);
+    Meteor.call("modifyNeed", this._id, "MEDIUM", this.organization);
   },
 
   "click #high": function(event) {
-    Meteor.call("modifyNeed", this.title, "HIGH", this.organization);
+    Meteor.call("modifyNeed", this._id, "HIGH", this.organization);
+  },
+
+  "click #deleteButton": function(event) {
+    Meteor.call("deleteNeed", this._id, this.organization);
   }
 });
 
