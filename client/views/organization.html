@@ -11,6 +11,7 @@
           {{> categoryNeeds}}
         {{/each}}
 
+        {{#if existsUncategorizedNeeds}}
         <div class="panel panel-default">
           <div class="panel-heading">Uncategorized needs</div>
           <div class="panel-body">
@@ -19,7 +20,9 @@
             {{/each}}
           </div>
         </div>
+        {{/if}}
       </div>
+
       {{#if hasAccess}}
         <div class="row">
           <form class="new-need form">
@@ -92,5 +95,5 @@
 </template>
 
 <template name="categoryButton">
-  <li><button type="button" class="btn btn-success btn-block btn-xs categoryButton" id="{{title}}" >{{title}}</button></li>
+  <li><button type="button" class="btn btn-primary btn-block btn-xs categoryButton" id="{{title}}" >{{title}}</button></li>
 </template>

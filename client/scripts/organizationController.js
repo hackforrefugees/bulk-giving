@@ -25,11 +25,14 @@ Template.registerHelper("hasAccessToOrganization", function() {
 });
 
 Template.registerHelper("organizationCategories", function(name) {
-  console.log("Looking for " + name);
   return Categories.find({organization:name});
 });
 
 Template.organization.helpers({
+  existsUncategorizedNeeds: function() {
+    return Needs.findOne({organization:this.name, category: {$exists: false}}) != null;
+  },
+
   uncategorizedOrganizationNeeds: function() {
     return Needs.find({organization:this.name, category: {$exists: false}});
   },
