@@ -6,23 +6,53 @@ Template.organization.events({
       // Get value from form element
       var need = event.target.what.value;
       Meteor.call("addNeed", need, this.name);
+    },
+
+    "submit .new-category": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+
+      // Get value from form element
+      var category = event.target.what.value;
+      Meteor.call("addCategory", category, this.name);
     }
 });
 
 //Registring this as helper allows us to re-use it in more than one template
 Template.registerHelper("hasAccessToOrganization", function() {
-    var user = Meteor.user();
-    return user && (user.organization == this.name);
+  var user = Meteor.user();
+  return user && (user.organization == this.name);
+});
+
+Template.registerHelper("organizationCategories", function(name) {
+  return Categories.find({organization:name});
 });
 
 Template.organization.helpers({
-  organizationNeeds: function() {
-    return Needs.find({organization:this.name});
+  existsUncategorizedNeeds: function() {
+    return Needs.findOne({organization:this.name, category: {$exists: false}}) != null;
+  },
+
+  uncategorizedOrganizationNeeds: function() {
+    return Needs.find({organization:this.name, category: {$exists: false}});
   },
   
   hasAccess: function() {
     var user = Meteor.user();
     return user && (user.organization == this.name);
+  }
+});
+
+Template.categoryNeeds.helpers({
+  organizationNeeds: function() {
+    return Needs.find({organization:this.organization, category:this._id});
+  }
+
+});
+
+Template.categoryNeeds.events({
+  "click #deleteButton": function(event) {
+    Meteor.call("deleteCategory", this._id, this.organization);
   }
 });
 
@@ -41,6 +71,13 @@ Template.organizationNeed.events({
 
   "click #deleteButton": function(event) {
     Meteor.call("deleteNeed", this._id, this.organization);
+  }
+});
+
+Template.categoryButton.events({
+  "click .categoryButton": function(event) {
+    var parent = Template.parentData(); //Parent template is 'need - used to find what need we are changing
+    Meteor.call("setNeedCategory", parent._id, this._id, this.organization);
   }
 });
 

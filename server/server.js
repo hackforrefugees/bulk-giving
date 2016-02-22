@@ -6,6 +6,10 @@ Meteor.publish("needs", function () {
   return Needs.find();
 });
 
+Meteor.publish("categories", function() {
+  return Categories.find();
+});
+
 Meteor.publish("userData", function () {
   if (this.userId) {
     return Meteor.users.find({_id: this.userId},
