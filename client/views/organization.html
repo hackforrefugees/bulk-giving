@@ -52,11 +52,15 @@
 
 <template name="categoryNeeds">
   <div class="panel panel-default">
-    <div class="panel-heading">{{title}} <button class="btn btn-danger btn-xs pull-right" type="button" id="deleteButton"><span class="glyphicon glyphicon-remove"></span>Delete</button></div>
-      <div class="panel-body">
-      {{#each organizationNeeds}}
-        {{> organizationNeed}}
-      {{/each}}
+    <div class="panel-heading">{{title}}
+    {{#if categoryHasAccessToOrganization}}
+      <button class="btn btn-danger btn-xs pull-right" type="button" id="deleteButton"><span class="glyphicon glyphicon-remove"></span>Delete</button>
+    {{/if}}
+    </div>
+    <div class="panel-body">
+    {{#each organizationNeeds}}
+      {{> organizationNeed}}
+    {{/each}}
     </div>
   </div>
 </template>
