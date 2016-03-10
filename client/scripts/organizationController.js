@@ -46,8 +46,12 @@ Template.organization.helpers({
 Template.categoryNeeds.helpers({
   organizationNeeds: function() {
     return Needs.find({organization:this.organization, category:this._id});
-  }
+  },
 
+  categoryHasAccessToOrganization: function() {
+    var user = Meteor.user();
+    return user && (user.organization == this.organization);
+  }
 });
 
 Template.categoryNeeds.events({
